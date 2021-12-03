@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0J/QvtC00YLQstC10YDQttC00LXQvdC40LUg0YPRh9C10YLQvdC+0Lkg0LfQsNC/?=
+ =?utf-8?b?0LjRgdC4IHVzZXI1?=
+From: website@geekshop.local
+To: user5@local.ru
+Date: Thu, 08 Apr 2021 00:02:18 -0000
+Message-ID: <161784013858.2872.7643820100730872025@DESKTOP-Zack>
+
+Для подтверждения учетной записи user5 на портале http://localhost:8000 перейдите по ссылке: 
+http://localhost:8000/auth/user/verify/user5@local.ru/60081ecc973d2be747ded8222a3bd12f1e3ba8ba/
+-------------------------------------------------------------------------------

@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name 194.67.92.114;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/django/geekshop;
+    }
+
+    location /media/ {
+        root /home/django/geekshop;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/django/geekshop/geekshop.sock;
+    }
+}

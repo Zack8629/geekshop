@@ -1,0 +1,62 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>
+    Категория {{ category.name|upper }}
+</title>
+{% endblock %}
+
+{% block body_container %}
+<div class="hero-white">
+    {% include 'mainapp/includes/main_menu.html' %}
+</div>
+
+<div class="details">
+    <div class="links clearfix">
+        {% include 'mainapp/includes/menu_products.html' %}
+    </div>
+
+    <div class="related">
+
+
+        <div class="title clearfix">
+            <h2>Продукты категории {{ category.name|upper }}</h2>
+            <div class="paginator">
+
+                {% if products.has_previous %}
+                <a href="{% url 'main:category' category.pk %}?page={{ products.previous_page_number }}">
+                    <
+                </a>
+                {% endif %}
+
+                <span class="current">страница {{ products.number }} из {{ products.paginator.num_pages }}</span>
+
+                {% if products.has_next %}
+                <a href="{% url 'main:category' category.pk %}?page={{ products.next_page_number }}">
+                    >
+                </a>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="related-products clearfix">
+            {% for el_products in products %}
+            <div class="block">
+                <a href="{% url 'main:product_page' el_products.pk %}">
+                    <img src="/media/{{ el_products.image }}" alt="">
+
+                    <div class="text">
+                        <img src="/static/img/icon-hover.png" alt="img">
+                        <h4>{{ el_products.name }}</h4>
+                        <p>{{ el_products.short_description }}</p>
+                    </div>
+
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

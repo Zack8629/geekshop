@@ -1,0 +1,16 @@
+<ul class="links-menu">
+	<li>
+		<a href="{% url 'main:category' 0 %}"
+		   class="{% if request.resolver_match.url_name == 'category' and request.resolver_match.kwargs.pk == 0 %}active{% endif %}">
+			все
+		</a>
+	</li>
+	{% for el_categories in categories %}
+		<li>
+			<a href="{% url 'main:category' el_categories.pk %}"
+			   class="{% if request.resolver_match.url_name == 'category' and request.resolver_match.kwargs.pk == el_categories.pk %}active{% endif %}">
+				{{ el_categories.name }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>

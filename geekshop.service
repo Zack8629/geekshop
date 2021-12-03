@@ -1,0 +1,12 @@
+[Unit]
+Description=geekshop daemon
+After=network.target
+
+[Service]
+User=django
+Group=www-data
+WorkingDirectory=/home/django/geekshop
+ExecStart=/usr/bin/gunicorn3 --access-logfile server.logs --workers 2 --bind unix:/home/django/geekshop/geekshop.sock geekshop.wsgi
+
+[Install]
+WantedBy=multi-user.target
